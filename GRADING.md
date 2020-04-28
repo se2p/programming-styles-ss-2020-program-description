@@ -13,7 +13,7 @@ To enable automatic testing, each of the submitted solutions must come with a ma
 - `clean`: to clean up all the generated resources (e.g., compiled classes)
 - `build`: to compile the code such that it can be executed by the system tests.
 
-Usually a skeleton of the makefile is provided along with the assignment so students can code their solution around that. Otherwise, changes to the makefile must be committed along with the solution.
+A predefined makefile is provided along with the assignment so you can code your solution around that. This script makes some assumptions on where files are located and how projects are set up, so it won't work if you do not follow them. Of course, you are free to restructure your project as you like (except renaming the main files!) but if you do so, you will be responsible to update your local makefile and commit it to GitHub along with your code.
 
 The automated testing infrastructure will use the make script to clean up, rebuild and prepare your submission for the execution in the system tests.
 
