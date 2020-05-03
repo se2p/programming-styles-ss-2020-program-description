@@ -90,7 +90,7 @@ Here's the specifications of the boards:
 - The boat has exactly four spaces to host the 4 fishes/preys. Captured fishes always occupy the same position in the board
 
 The following diagram shows an empty board, and for the sake of illustration
-the line and column numbers that can be occupied by the pawns.
+line and column numbers that can be occupied by the pawns are reported (please, do not consider the spaces in front and after each line in this diagram).
 
 ```
 |  -12345678-123-123-123-123-123-123-123-123-123-123-123-1234567-
@@ -117,12 +117,12 @@ When the boat is full, it will look like this. Note that fishes will always occu
 When all the fishes reach the open sea, the open sea cell looks like this:
 
 ```
-╤═══════╗
-│   2   ║ 
-│   3   ║ 
-│   4   ║ 
-│   5   ║ 
-╧═══════╝
+═╤═══════╗
+ │   2   ║
+ │   3   ║
+ │   4   ║
+ │   5   ║
+═╧═══════╝
 ```
 
 
@@ -132,50 +132,50 @@ Imagine that the following input sequence is given to the program:
 `[2, 5, 3, 1, 2, 2, 2, 2, 2, 1, 6, 6, 6, 1, 4]`
 
 
-The UI at the beginning of the game is:
+The UI at the beginning of the game is as follow (Note: there are no empty spaces in front of the UI)
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │   │   │   │   │   │ 2 │   │   │   │   │   │       ║ 
-  ║  │  │  │   │   │   │   │   │ 3 │   │   │   │   │   │       ║
-  ║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
-  ║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   │   │   │ 2 │   │   │   │   │   │       ║
+║  │  │  │   │   │   │   │   │ 3 │   │   │   │   │   │       ║
+║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
+║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
 
 ```
 Then after processing the inputs 2, 5, and 3, because fishes moved, the board will look like this:
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │   │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║ 
-  ║  │  │  │   │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-  ║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
-  ║  └──┘6 │   │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║
+║  │  │  │   │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
+║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
+║  └──┘6 │   │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
 ```
 
-> Note: the initial position of the fishes is denoted by a shaded block ▓:
+> Note: the initial position of the fishes is denoted by a shaded block ▓. This is a requirements so the shaded blocks **must** be there. 
 
-At this point, after reading the input `1` the fishermen boat moves as well:
+At this point, after reading the input `1` the fishermen boat moves as well, and the left-most little tile disappear, making the board shorter.
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║ 
-  ║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-  ║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
-  ║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║
+║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
+║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
+║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
 ```
 
 After reading `[2, 2, 2, 2, 2]`, fish 2 reaches the open sea and it is safe:
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │   │   │   │   │ ▓ │   │   │   │   │   │   2   ║ 
-  ║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-  ║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
-  ║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   │   │ ▓ │   │   │   │   │   │   2   ║
+║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
+║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
+║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
 
 ```
 
@@ -183,45 +183,46 @@ After reading the inputs: `[1, 6, 6, 6]`, the fishermen catch up
 and *almost* capture Fish 4:
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │ ▓ │   │   │   │   │   │   2   ║ 
-  ║  │  │  │ ▓ │ 3 │   │   │   │   │       ║
-  ║  │  │  │ 4 │   │   │   │   │   │       ║
-  ║  └──┘6 │ ▓ │ 5 │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │ ▓ │   │   │   │   │   │   2   ║
+║  │  │  │ ▓ │ 3 │   │   │   │   │       ║
+║  │  │  │ 4 │   │   │   │   │   │       ║
+║  └──┘6 │ ▓ │ 5 │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
 
 ```
 
 Thanks to input `1`, the fishermen catch Fish 4:
 
 ```
-  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══════╗
-  ║  ┌──┐1 │   │   │   │   │   │   2   ║ 
-  ║  │  │  │ 3 │   │   │   │   │       ║
-  ║  │4 │  │   │   │   │   │   │       ║
-  ║  └──┘6 │ 5 │   │   │   │   │       ║ 
-  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══════╝
-
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   │   │   │   2   ║
+║  │  │  │ 3 │   │   │   │   │       ║
+║  │4 │  │   │   │   │   │   │       ║
+║  └──┘6 │ 5 │   │   │   │   │       ║
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══════╝
 ```
 
-And finally, because Fish 4 has been captured, the next input `4` makes the fishermen move again and catch fishes 3 and 5. At this point, the game is over. Since the fishermen won, the banner with the winning message is displayed above the board.
-
+And finally, because Fish 4 has been captured, the next input `4` makes the fishermen move again and catch fishes 3 and 5. At this point, the game is over. Since the fishermen won, the banner with the winning message is displayed above the board. 
 
 ```
  ╔════════╤═══╤═══╤═══╤═══╤═══════╗
- ║  ┌──┐1 │   │   │   │   │   2   ║ 
+ ║  ┌──┐1 │   │   │   │   │   2   ║
 ┌──────────────────────────────────┐
 │    The fishing was good; it's    │
 │    the catching that was bad.    │
 └──────────────────────────────────┘
- ║  └──┘6 │   │   │   │   │       ║ 
+ ║  └──┘6 │   │   │   │   │       ║
  ╚════════╧═══╧═══╧═══╧═══╧═══════╝
 
 ```
+> Note: the banner is always at least two chars longer then board. So there is at least one empty space before the UI.
+
+#### Extended ASCII
 
 Note that to generate the UI you need to use the extended ASCII characters. Please read this [StackOverflow question](https://stackoverflow.com/questions/22273046/how-to-print-the-extended-ascii-code-in-java-from-integer-value). And remember that you can contribute to this documentation if you find something useful for generating the right UI (but DO NOT SHARE YOUR CODE!!!!)
 
-### Few Corner Cases
+### Corner Cases
 
 #### Invalid inputs
 
@@ -263,6 +264,6 @@ Note that for invalid inputs might be longer than 3 chars. In this case, we will
 
 #### Additional corner cases
 
-In general, there might be additional corner cases. If you find some, please contribute to this documentation and possible define public tests which capture them, so all the other students can update their code.
+In general, additional corner cases might be possible. If you find some, please contribute to this documentation and possibly define public tests which capture them, so all the other students can update their code.
 
 
