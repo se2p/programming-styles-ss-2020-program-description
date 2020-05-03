@@ -27,7 +27,7 @@ The game is non-interactive, meaning that a sequence of inputs is given before h
 
 Numbers `1` and `6` corresponds to fishermen/hunters, the others to fishes. Fishermen/hunters move together, while fishes move alone. When a fish moves, the corresponding pawn is placed to the next cell on the board; however, when the fishermen/hunters move, the cell in front of their boat is **removed** from the board, so the distance between the fishermen/hunters and the fishes becomes smaller. Consequently, one invariant of the game is that, the two BIG cells corresponding to the fishermen/hunters boat and the open sea, are ALWAYS on the board. If the cell that is removed contains fishes/preys, all of them are captured by the fishermen/hunters. So they will disappear from the board, and re-appear inside the fishermen/hunters' boat.
 
-After consuming one input, the program must refresh its GUI, and move on to the next input. If any, otherwise, it should clear the GUI and show an error message that reads, literally, like the following one:
+After consuming one input, the program must refresh its GUI, and move on to the next input. In case there are no more input to process, but the game is not yet finished, the GUI must be cleared and the following error message must be shown (i.e., no board, just the error message).
 
 ```
 ┌─────────────────┐
@@ -47,8 +47,8 @@ The game may end in different ways:
 
 1. All the fishes/preys reach safety. Fishes win.
 2. All the fishes/preys get captured. Fishermen/hunters win.
-3. The fishermen/hunters reach the open sea. The majority of fishes win: if more fishes are safe, they win, otherwise, fishermen/hunters win.
-4. There are not enough inputs. That's a tie.
+3. The fishermen/hunters reach the open sea. If the majority of fishes is safe, team fishes/preys wins. If the majority of fishes are captured, team fishermen/hunters wins. If two fishes are safe and two fishes are captured, that's tie.
+4. There are not enough inputs to finish the game. That also count as a tie, but we need to show the error message as explained in the previous Section.
 When the games ends, it must show a "personalized" message. The messages can be:
 
 ```
@@ -67,7 +67,15 @@ if the fishes/preys win, or
 └────────────────────────────┘
 ```
 
-if the fishermen/hunters win. 
+if the fishermen/hunters win, or.
+
+```
+┌──────────┐
+│ Nice tie │
+│   LOL!   │
+└──────────┘
+```
+
 
 Spacing and punctuation in the messages matter!!
 
