@@ -16,7 +16,8 @@ A regular dice (6 sides, numbered `1` to `6`) decides who moves forward by one s
 However, after the fishermen/hunters capture a fish/prey, then they can move when the number corresponding to that fish/prey is drawn. A fish/prey is captured when the fishermen/hunter reach the segment of the board that contains it.
 
 Eventually, if the number of fishes/preys that managed to escaped is higher than the number of fishes/preys that have been captured, the fishes/preys win the game. On the contrary, if the number of captured fishes/preys is higher than the ones that escaped, the fishermen/hunters win the game. 
-### Game Setup
+
+### Game Setup
 
 When the game starts, the fishermen/hunters are placed to the very left BIG cell of the board, while the fishes are placed in the central cell, i.e., the cell that is exactly mid-way to the open sea, which is the right-most BIG cell of the board. There are 5 regular cells on the left of the central one, and 5 regular cells on its right, for a total of: 2 big and 11 regular cells.
 
@@ -49,7 +50,8 @@ The game may end in different ways:
 2. All the fishes/preys get captured. Fishermen/hunters win.
 3. The fishermen/hunters reach the open sea. If the majority of fishes is safe, team fishes/preys wins. If the majority of fishes are captured, team fishermen/hunters wins. If two fishes are safe and two fishes are captured, that's tie.
 4. There are not enough inputs to finish the game. That also count as a tie, but we need to show the error message as explained in the previous Section.
-When the games ends, it must show a "personalized" message. The messages can be:
+
+When the games ends, it must show a "personalized" message. The messages can be:
 
 ```
 ┌───────────────┐
@@ -224,9 +226,109 @@ And finally, because Fish 4 has been captured, the next input `4` makes the fish
 ```
 > Note: the banner is always at least two chars longer then board. So there is at least one empty space before the UI.
 
+
+
 #### Extended ASCII
 
 Note that to generate the UI you need to use the extended ASCII characters. Please read this [StackOverflow question](https://stackoverflow.com/questions/22273046/how-to-print-the-extended-ascii-code-in-java-from-integer-value). And remember that you can contribute to this documentation if you find something useful for generating the right UI (but DO NOT SHARE YOUR CODE!!!!)
+
+#### Yet Another Example (with more corner cases)
+Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4]` (for the sake of clarification, I am giving input to the program interactively), we can reach to the following game state:  
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │ 3 │       ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │ 5 │   │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+In this game status, all there possible is achievable.
+##### Win Case
+If the next following inputs are `[4,1]` we would get:
+```
+╔════════╤═══════╗
+║  ┌──┐1 │   2   ║
+║  │ 3│  │       ║
+║  │45│  │       ║
+║  └──┘6 │       ║
+╚════════╧═══════╝
+```
+The hunters won the game, and we should print the following banner:
+```
+      ╔════════╤═══════╗
+┌────────────────────────────┐
+│ The fishing was good; it's │
+│ the catching that was bad. │
+└────────────────────────────┘
+      ╚════════╧═══════╝
+```
+##### Tie Case
+Alternatively, if the inputs were `[2,4]`, we would have a tie.
+Because when the next input is `[2]`, the fish with number 2 is in the ocean. As a result, the next closest fish to the sea should move, which is fish 3.
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │   │   3   ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │ 5 │   │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+And when we get `[4]`, the fishers should move, because they have already captured fish 4.
+```
+╔════════╤═══╤═══════╗
+║  ┌──┐1 │   │   2   ║
+║  │  │  │   │   3   ║
+║  │45│  │   │       ║
+║  └──┘6 │   │       ║
+╚════════╧═══╧═══════╝
+```
+at this stage, 2 fishes are captured, and 2 fishes are safe. We should print the tie banner:
+```
+ ╔════════╤═══╤═══════╗
+┌──────────────────────┐
+│       Nice tie       │
+│         LOL!         │
+└──────────────────────┘
+ ╚════════╧═══╧═══════╝
+```
+##### Lose Case
+The last case is the lose case! If the input is `[2,5,3]` we will have the lose case.
+After getting `[2]`:
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │   │   3   ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │ 5 │   │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+After getting `[5]`:
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │   │   3   ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │   │ 5 │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+After getting `[3]`:
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │   │   3   ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │   │   │   5   ║
+╚════════╧═══╧═══╧═══════╝
+```
+Fishes won! print the banner:
+```
+ ╔════════╤═══╤═══╤═══════╗
+┌──────────────────────────┐
+│       Go team fish!      │
+│       Finally free.      │
+└──────────────────────────┘
+ ╚════════╧═══╧═══╧═══════╝
+```
 
 ### Corner Cases
 
@@ -248,7 +350,7 @@ The following example show the UI of the "initial" game after reading the invali
 
 ```
 
-Note that for invalid inputs might be longer than 3 chars. In this case, we will show in the banner a short version of the input. For example, assume that the input sequence is the following:
+Note that invalid inputs might be longer than 3 chars. In this case, we will show in the banner a short version of the input. For example, assume that the input sequence is the following:
 `1 3 400000 5`
 
 `400000` is invalid and is longer than 3 digits/chars, so the board (after processing the valid inputs!!!) will look like this:
@@ -263,6 +365,25 @@ Note that for invalid inputs might be longer than 3 chars. In this case, we will
 
 ```
 
+#### Long banner over small board
+This corner case happens when the message text is much longer than the board size. In that case, you should shift the board more than one space in order to align the banner.
+```
+      ╔════════╤═══════╗
+┌────────────────────────────┐
+│ The fishing was good; it's │
+│ the catching that was bad. │
+└────────────────────────────┘
+      ╚════════╧═══════╝
+```
+Or
+```
+       ╔════════╤═══╤═══════╗
+┌──────────────────────────────────┐
+│ The provided input is not valid! │
+│      Offending input: 400...     │
+└──────────────────────────────────┘
+       ╚════════╧═══╧═══════╝
+```
 
 #### Additional corner cases
 
