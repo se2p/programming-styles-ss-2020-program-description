@@ -244,9 +244,11 @@ Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4,1,6]` 
 ║  └──┘6 │ 5 │   │       ║
 ╚════════╧═══╧═══╧═══════╝
 ```
+
 In this game status, all there possible is achievable.
 ##### Win Case
 If the next following inputs are `[4,1]` we would get:
+
 ```
 ╔════════╤═══════╗
 ║  ┌──┐1 │   2   ║
@@ -255,7 +257,9 @@ If the next following inputs are `[4,1]` we would get:
 ║  └──┘6 │       ║
 ╚════════╧═══════╝
 ```
+
 The hunters won the game, and we should print the following banner:
+
 ```
       ╔════════╤═══════╗
 ┌────────────────────────────┐
@@ -264,9 +268,11 @@ The hunters won the game, and we should print the following banner:
 └────────────────────────────┘
       ╚════════╧═══════╝
 ```
+
 ##### Tie Case
 Alternatively, if the inputs were `[2,4]`, we would have a tie.
 Because when the next input is `[2]`, the fish with number 2 is in the ocean. As a result, the next closest fish to the sea should move, which is fish 3.
+
 ```
 ╔════════╤═══╤═══╤═══════╗
 ║  ┌──┐1 │   │   │   2   ║
@@ -275,7 +281,9 @@ Because when the next input is `[2]`, the fish with number 2 is in the ocean. As
 ║  └──┘6 │ 5 │   │       ║
 ╚════════╧═══╧═══╧═══════╝
 ```
+
 And when we get `[4]`, the fishers should move, because they have already captured fish 4.
+
 ```
 ╔════════╤═══╤═══════╗
 ║  ┌──┐1 │   │   2   ║
@@ -284,7 +292,9 @@ And when we get `[4]`, the fishers should move, because they have already captur
 ║  └──┘6 │   │       ║
 ╚════════╧═══╧═══════╝
 ```
+
 at this stage, 2 fishes are captured, and 2 fishes are safe. We should print the tie banner:
+
 ```
  ╔════════╤═══╤═══════╗
 ┌──────────────────────┐
@@ -293,9 +303,11 @@ at this stage, 2 fishes are captured, and 2 fishes are safe. We should print the
 └──────────────────────┘
  ╚════════╧═══╧═══════╝
 ```
+
 ##### Lose Case
 The last case is the lose case! If the input is `[2,5,3]` we will have the lose case.
 After getting `[2]`:
+
 ```
 ╔════════╤═══╤═══╤═══════╗
 ║  ┌──┐1 │   │   │   2   ║
@@ -304,7 +316,9 @@ After getting `[2]`:
 ║  └──┘6 │ 5 │   │       ║
 ╚════════╧═══╧═══╧═══════╝
 ```
+
 After getting `[5]`:
+
 ```
 ╔════════╤═══╤═══╤═══════╗
 ║  ┌──┐1 │   │   │   2   ║
@@ -313,7 +327,9 @@ After getting `[5]`:
 ║  └──┘6 │   │ 5 │       ║
 ╚════════╧═══╧═══╧═══════╝
 ```
+
 After getting `[3]`:
+
 ```
 ╔════════╤═══╤═══╤═══════╗
 ║  ┌──┐1 │   │   │   2   ║
@@ -322,7 +338,9 @@ After getting `[3]`:
 ║  └──┘6 │   │   │   5   ║
 ╚════════╧═══╧═══╧═══════╝
 ```
+
 Fishes won! print the banner:
+
 ```
  ╔════════╤═══╤═══╤═══════╗
 ┌──────────────────────────┐
@@ -369,6 +387,7 @@ Note that invalid inputs might be longer than 3 chars. In this case, we will sho
 
 #### Long banner over small board
 This corner case happens when the message text is much longer than the board size. In that case, you should shift the board more than one space in order to align the banner.
+
 ```
       ╔════════╤═══════╗
 ┌────────────────────────────┐
@@ -377,7 +396,9 @@ This corner case happens when the message text is much longer than the board siz
 └────────────────────────────┘
       ╚════════╧═══════╝
 ```
+
 Or
+
 ```
        ╔════════╤═══╤═══════╗
 ┌──────────────────────────────────┐
@@ -386,6 +407,7 @@ Or
 └──────────────────────────────────┘
        ╚════════╧═══╧═══════╝
 ```
+
 
 #### Additional corner cases
 
