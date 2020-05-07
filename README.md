@@ -245,8 +245,15 @@ Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4,1,6]` 
 ╚════════╧═══╧═══╧═══════╝
 ```
 
-In this game status, all there possible is achievable.
-##### Win Case
+
+Not that the same state of the application can also be obtained by the following sequence of inputs:
+`[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,6,4,2,4]`
+
+The noticeable difference from the case above is that in this second case because fish 4 is captured at step 22, then next input 4 causes the fishermen (and not the fishes to move).
+
+In this game status, all the possible outcomes can be achieved.
+
+##### Fishermen/Hunters Win the Game
 If the next following inputs are `[4,1]` we would get:
 
 ```
@@ -258,7 +265,7 @@ If the next following inputs are `[4,1]` we would get:
 ╚════════╧═══════╝
 ```
 
-The hunters won the game, and we should print the following banner:
+The fishermen/hunters won the game, and we should print the following banner:
 
 ```
       ╔════════╤═══════╗
@@ -269,9 +276,9 @@ The hunters won the game, and we should print the following banner:
       ╚════════╧═══════╝
 ```
 
-##### Tie Case
-Alternatively, if the inputs were `[2,4]`, we would have a tie.
-Because when the next input is `[2]`, the fish with number 2 is in the ocean. As a result, the next closest fish to the sea should move, which is fish 3.
+##### Nobody Wins. It's a Tie
+Alternatively, if the inputs are `[2,4]`, the games ends in a Tie.
+Because when the next input is `[2]`, the fish with number 2 is in the ocean. As a result, the fish with the **smallest** id (which is coincidentally the closest to the sea in this case) should move. This is fish 3.
 
 ```
 ╔════════╤═══╤═══╤═══════╗
@@ -282,7 +289,7 @@ Because when the next input is `[2]`, the fish with number 2 is in the ocean. As
 ╚════════╧═══╧═══╧═══════╝
 ```
 
-And when we get `[4]`, the fishers should move, because they have already captured fish 4.
+And when we get `[4]`, the hunters/fishermen should move, because they have already captured fish 4.
 
 ```
 ╔════════╤═══╤═══════╗
@@ -304,9 +311,9 @@ at this stage, 2 fishes are captured, and 2 fishes are safe. We should print the
  ╚════════╧═══╧═══════╝
 ```
 
-##### Lose Case
-The last case is the lose case! If the input is `[2,5,3]` we will have the lose case.
-After getting `[2]`:
+##### Preys/Fishes Win the Game
+The last case is the case of preys/fishes winning the game, that can be obtained with the following additional inputs: `[2,5,3]`.
+In this case, after getting `[2]` fish 3 can move and reach safety.
 
 ```
 ╔════════╤═══╤═══╤═══════╗
@@ -317,7 +324,7 @@ After getting `[2]`:
 ╚════════╧═══╧═══╧═══════╝
 ```
 
-After getting `[5]`:
+After getting `[5]`, fish 5 moves.
 
 ```
 ╔════════╤═══╤═══╤═══════╗
@@ -328,7 +335,7 @@ After getting `[5]`:
 ╚════════╧═══╧═══╧═══════╝
 ```
 
-After getting `[3]`:
+And after getting `[3]`, fish 5 (which is the last remaining, so the one with the **smallest** id among the alive fishes still in danger) move and the game ends.
 
 ```
 ╔════════╤═══╤═══╤═══════╗
@@ -339,7 +346,7 @@ After getting `[3]`:
 ╚════════╧═══╧═══╧═══════╝
 ```
 
-Fishes won! print the banner:
+So we can print the banner for team fish:
 
 ```
  ╔════════╤═══╤═══╤═══════╗
