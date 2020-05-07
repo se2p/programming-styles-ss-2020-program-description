@@ -43,6 +43,63 @@ When a fish/prey reaches the safety, it cannot be captured anymore. If the numbe
 
 At the contrary, after a fish/prey gets captured, if the its number is received as input, then the fishermen/hunters move by remove one section of the board in front of their boat.
 
+The following examples clarify this. 
+
+##### Example 1: Fish Closest to safety moves
+Given the following game state:
+
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │   │ 3 │       ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │ 5 │   │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+
+upon getting `[2]` as input, fish 3 moves, because it is the closest to safety. Likewise, given the following game state:
+
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │ 3 │   │       ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │   │ 5 │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+
+upon getting `[2]` as input, fish 5 moves, because it is the closest to safety.
+
+##### Example 2: Fish with the smallest ID moves
+
+Given the following game state:
+
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │  │  │ 3 │   │       ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │ 5 │   │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+
+upon getting `[2]` as input, fish 3 moves, because fishes 3 and 5 are equally distant from safety, but 3 is smaller than 5.
+
+##### Example 3: Hunters/Fishermen move 
+
+Given the following game state:
+
+```
+╔════════╤═══╤═══╤═══════╗
+║  ┌──┐1 │   │   │   2   ║
+║  │ 3│  │   │   │       ║
+║  │4 │  │   │   │       ║
+║  └──┘6 │   │ 5 │       ║
+╚════════╧═══╧═══╧═══════╝
+```
+
+upon getting `[3]` (or `[4]`) as input, hunters/fishermen moves, because both fishes 3 and 4 have been already captured.
+
 ### End of the Game
 The game may end in different ways:
 
@@ -278,7 +335,8 @@ The fishermen/hunters won the game, and we should print the following banner:
 
 ##### Nobody Wins. It's a Tie
 Alternatively, if the inputs are `[2,4]`, the games ends in a Tie.
-Because when the next input is `[2]`, the fish with number 2 is in the ocean. As a result, the fish with the **smallest** id (which is coincidentally the closest to the sea in this case) should move. This is fish 3.
+
+When we get `[2]`, since the fish with number 2 is already safe, the fish that moves is fish 3. This is because fish 3 is the fish closest to the sea (coincidentally in this case fish 3 has also the smallest id).
 
 ```
 ╔════════╤═══╤═══╤═══════╗
