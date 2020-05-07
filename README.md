@@ -233,7 +233,9 @@ And finally, because Fish 4 has been captured, the next input `4` makes the fish
 Note that to generate the UI you need to use the extended ASCII characters. Please read this [StackOverflow question](https://stackoverflow.com/questions/22273046/how-to-print-the-extended-ascii-code-in-java-from-integer-value). And remember that you can contribute to this documentation if you find something useful for generating the right UI (but DO NOT SHARE YOUR CODE!!!!)
 
 #### Yet Another Example (with more corner cases)
-Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4]` (for the sake of clarification, I am giving input to the program interactively), we can reach to the following game state:  
+Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4,1,6]` (for the sake of clarification, I am giving input to the program interactively), we can reach to the following game state:  
+
+
 ```
 ╔════════╤═══╤═══╤═══════╗
 ║  ┌──┐1 │   │   │   2   ║
