@@ -33,7 +33,7 @@ After consuming one input, the program must refresh its GUI, and move on to the 
 ```
 ┌─────────────────┐
 │ Missing inputs. │
-│ The games ends! │
+│ The game ends!! │
 └─────────────────┘
 ```
 
@@ -108,7 +108,7 @@ The game may end in different ways:
 3. The fishermen/hunters reach the open sea. If the majority of fishes is safe, team fishes/preys wins. If the majority of fishes are captured, team fishermen/hunters wins. If two fishes are safe and two fishes are captured, that's tie.
 4. There are not enough inputs to finish the game. That also count as a tie, but we need to show the error message as explained in the previous Section.
 
-When the games ends, it must show a "personalized" message. The messages can be:
+When a game ends, it must show a "personalized" message. The messages can be:
 
 ```
 ┌───────────────┐
@@ -334,7 +334,7 @@ The fishermen/hunters won the game, and we should print the following banner:
 ```
 
 ##### Nobody Wins. It's a Tie
-Alternatively, if the inputs are `[2,4]`, the games ends in a Tie.
+Alternatively, if the inputs are `[2,4]`, the game ends in a Tie.
 
 When we get `[2]`, since the fish with number 2 is already safe, the fish that moves is fish 3. This is because fish 3 is the fish closest to the sea (coincidentally in this case fish 3 has also the smallest id).
 
