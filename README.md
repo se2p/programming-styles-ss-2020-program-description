@@ -28,7 +28,7 @@ The game is non-interactive, meaning that a sequence of inputs is given beforeha
 
 Numbers `1` and `6` corresponds to fishermen/hunters, the others to fishes. Fishermen/hunters move together, while fishes move alone. When a fish moves, the corresponding pawn is placed to the next cell on the board; however, when the fishermen/hunters move, the cell in front of their boat is **removed** from the board, so the distance between the fishermen/hunters and the fishes becomes smaller. Consequently, one invariant of the game is that the two BIG cells corresponding to the fishermen/hunters boat and the open sea are ALWAYS on the board. If the cell that is removed contains fishes/preys, all of them are captured by the fishermen/hunters. So they will disappear from the board and re-appear inside the fishermen/hunters' boat.
 
-After consuming one input, the program must refresh its GUI, and move on to the next input. In case there is no more input to process, but the game is not yet finished, the GUI must show the following error message (see below)
+After consuming one input, the program must refresh its GUI, and move on to the next input. In case there is no more input to process, but the game is not yet finished, the GUI must show the following error message **over the board**, just like any of the other closing messages.
 
 ```
 ┌─────────────────┐
