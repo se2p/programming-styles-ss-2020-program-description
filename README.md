@@ -49,22 +49,22 @@ The following examples clarify this.
 Given the following game state:
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │ 3 │       ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │ 5 │   │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │ 3 │       ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 upon getting `2` as input, fish 3 moves, because it is the closest to safety. Likewise, given the following game state:
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │ 3 │   │       ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │   │ 5 │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │ 3 │   │       ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │   │ 5 │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 upon getting `2` as input, fish 5 moves, because it is the closest to safety.
@@ -73,12 +73,12 @@ upon getting `2` as input, fish 5 moves, because it is the closest to safety.
 Given the following game state:
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │ 3 │   │       ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │ 5 │   │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │ 3 │   │       ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 upon getting `2` as input, fish 3 moves, because fishes 3 and 5 are equally distant from safety, but 3 is smaller than 5.
@@ -87,12 +87,12 @@ upon getting `2` as input, fish 3 moves, because fishes 3 and 5 are equally dist
 Given the following game state:
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │ 3│  │   │   │       ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │   │ 5 │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │ 3│  │   │   │       ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │   │ 5 │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 upon getting `3` (or `4`) as input, hunters/fishermen move, because both fishes 3 and 4 have been already captured.
@@ -167,12 +167,12 @@ The following diagram shows an empty board, and for the sake of illustration the
 
 ```
 |  -12345678-123-123-123-123-123-123-123-123-123-123-123-1234567-
-|  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-1  ║  ┌──┐  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║ 
-2  ║  │  │  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║
-3  ║  │  │  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║
-4  ║  └──┘  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║ 
-|  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+|  ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+1  ║  ┌──┐  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║[\n]
+2  ║  │  │  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║[\n]
+3  ║  │  │  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║[\n]
+4  ║  └──┘  │   │   │   │   │   │ ▓ │   │   │   │   │   │       ║[\n]
+|  ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 |  -12345678-123-123-123-123-123-123-123-123-123-123-123-1234567-
 ```
 
@@ -190,12 +190,12 @@ When the boat is full, it will look like this. Note that fishes will always occu
 When all the fishes reach the open sea, the open sea cell looks like this:
 
 ```
-═╤═══════╗
- │   2   ║
- │   3   ║
- │   4   ║
- │   5   ║
-═╧═══════╝
+═╤═══════╗[\n]
+ │   2   ║[\n]
+ │   3   ║[\n]
+ │   4   ║[\n]
+ │   5   ║[\n]
+═╧═══════╝[\n]
 ```
 
 ### Let's Play the Game.
@@ -206,23 +206,23 @@ Imagine that the following input sequence is given to the program:
 The UI at the beginning of the game is as follow (Note: there are no empty spaces in front of the UI)
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   │   │   │ 2 │   │   │   │   │   │       ║
-║  │  │  │   │   │   │   │   │ 3 │   │   │   │   │   │       ║
-║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
-║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 
 ```
 Then after processing the inputs `2`, `5`, and `3`, because fishes moved, the board will look like this:
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║
-║  │  │  │   │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║
-║  └──┘6 │   │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │   │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 ```
 
 > Note: the initial position of the fishes is denoted by a shaded block ▓. This is a requirement so the shaded blocks **must** be there. 
@@ -230,35 +230,35 @@ Then after processing the inputs `2`, `5`, and `3`, because fishes moved, the bo
 At this point, after reading the input 1 the fishermen boat moves as well, and the left-most little tile disappears, making the board shorter.
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║
-║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
-║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │ ▓ │ 2 │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 ```
 
 After reading `2, 2, 2, 2, 2`, Fish 2 reaches the open sea and it is safe:
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   │   │ ▓ │   │   │   │   │   │   2   ║
-║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║
-║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║
-║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │ ▓ │   │   │   │   │   │   2   ║[\n]
+║  │  │  │   │   │   │   │ ▓ │ 3 │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │   │   │   │   │ ▓ │ 5 │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 
 ```
 
 After reading the inputs `1, 6, 6, 6`, the fishermen catch up and *almost* capture Fish 4:
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │ ▓ │   │   │   │   │   │   2   ║
-║  │  │  │ ▓ │ 3 │   │   │   │   │       ║
-║  │  │  │ 4 │   │   │   │   │   │       ║
-║  └──┘6 │ ▓ │ 5 │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │ ▓ │   │   │   │   │   │   2   ║[\n]
+║  │  │  │ ▓ │ 3 │   │   │   │   │       ║[\n]
+║  │  │  │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │ ▓ │ 5 │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 
 ```
 
@@ -266,23 +266,23 @@ Thanks to input `1`, the fishermen catch Fish 4:
 
 
 ```
-╔════════╤═══╤═══╤═══╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   │   │   │   2   ║
-║  │  │  │ 3 │   │   │   │   │       ║
-║  │4 │  │   │   │   │   │   │       ║
-║  └──┘6 │ 5 │   │   │   │   │       ║
-╚════════╧═══╧═══╧═══╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │   │   2   ║[\n]
+║  │  │  │ 3 │   │   │   │   │       ║[\n]
+║  │4 │  │   │   │   │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 ```
 
 And finally, because Fish 4 has been captured, the next input `4` makes the fishermen move again and catch fishes 3 and 5. At this point, the game is over. Since the fishermen won, the banner with the winning message is displayed above the board. 
 
 ```
- ╔════════╤═══╤═══╤═══╤═══╤═══════╗
-┌──────────────────────────────────┐
-│    The fishing was good; it's    │
-│    the catching that was bad.    │
-└──────────────────────────────────┘
- ╚════════╧═══╧═══╧═══╧═══╧═══════╝
+ ╔════════╤═══╤═══╤═══╤═══╤═══════╗ [\n]
+┌──────────────────────────────────┐[\n]
+│    The fishing was good; it's    │[\n]
+│    the catching that was bad.    │[\n]
+└──────────────────────────────────┘[\n]
+ ╚════════╧═══╧═══╧═══╧═══╧═══════╝ [\n]
 
 ```
 
@@ -302,12 +302,12 @@ Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4,1,6]` 
 
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │ 3 │       ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │ 5 │   │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │ 3 │       ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 > Note: the same state of the application can also be obtained by the following sequence of inputs: `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,6,4,2,4]`. The noticeable difference from the case above is that in this second case because Fish 4 is captured at step 22, then next input, `4`, causes the fishermen (and not the fishes to move).
 
@@ -317,23 +317,23 @@ In this game status, all the possible outcomes can be achieved.
 If the next following inputs are `[4,1]` we would get:
 
 ```
-╔════════╤═══════╗
-║  ┌──┐1 │   2   ║
-║  │ 3│  │       ║
-║  │45│  │       ║
-║  └──┘6 │       ║
-╚════════╧═══════╝
+╔════════╤═══════╗[\n]
+║  ┌──┐1 │   2   ║[\n]
+║  │ 3│  │       ║[\n]
+║  │45│  │       ║[\n]
+║  └──┘6 │       ║[\n]
+╚════════╧═══════╝[\n]
 ```
 
 The fishermen/hunters won the game, and we should print the following banner:
 
 ```
-      ╔════════╤═══════╗
-┌────────────────────────────┐
-│ The fishing was good; it's │
-│ the catching that was bad. │
-└────────────────────────────┘
-      ╚════════╧═══════╝
+      ╔════════╤═══════╗      [\n]
+┌────────────────────────────┐[\n]
+│ The fishing was good; it's │[\n]
+│ the catching that was bad. │[\n]
+└────────────────────────────┘[\n]
+      ╚════════╧═══════╝      [\n]
 ```
 
 ##### Nobody Wins. It's a Tie
@@ -341,34 +341,34 @@ Alternatively, if the inputs are `2,4`, the game ends in a Tie.
 When we get `2`, since the fish with number 2 is already safe, the fish that moves is fish 3. This is because Fish 3 is the fish closest to the sea (coincidentally in this case fish 3 has also the smallest id).
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │   │   3   ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │ 5 │   │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │   │   3   ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 And when we get `4`, the hunters/fishermen should move, because they have already captured fish 4.
 
 ```
-╔════════╤═══╤═══════╗
-║  ┌──┐1 │   │   2   ║
-║  │  │  │   │   3   ║
-║  │45│  │   │       ║
-║  └──┘6 │   │       ║
-╚════════╧═══╧═══════╝
+╔════════╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   2   ║[\n]
+║  │  │  │   │   3   ║[\n]
+║  │45│  │   │       ║[\n]
+║  └──┘6 │   │       ║[\n]
+╚════════╧═══╧═══════╝[\n]
 ```
 
 at this stage, two fishes are captured, and two fishes are safe. We should print the tie banner:
 
 ```
- ╔════════╤═══╤═══════╗
-┌──────────────────────┐
-│       Nice tie       │
-│         LOL!         │
-└──────────────────────┘
- ╚════════╧═══╧═══════╝
+ ╔════════╤═══╤═══════╗ [\n]
+┌──────────────────────┐[\n]
+│       Nice tie       │[\n]
+│         LOL!         │[\n]
+└──────────────────────┘[\n]
+ ╚════════╧═══╧═══════╝ [\n]
 ```
 
 ##### Preys/Fishes Win the Game
@@ -376,46 +376,46 @@ at this stage, two fishes are captured, and two fishes are safe. We should print
 The last case is the case of preys/fishes winning the game, This can be obtained with the following additional inputs: `2,5,3`. In this case, after getting `2` Fish 3 can move and reach safety.
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │   │   3   ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │ 5 │   │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │   │   3   ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │ 5 │   │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 After getting `5`, Fish 5 moves.
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │   │   3   ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │   │ 5 │       ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │   │   3   ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │   │ 5 │       ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 And after getting `3`, Fish 5 (which is the last remaining, so the one with the **smallest** id among the alive fishes still in danger) move and the game ends.
 
 
 ```
-╔════════╤═══╤═══╤═══════╗
-║  ┌──┐1 │   │   │   2   ║
-║  │  │  │   │   │   3   ║
-║  │4 │  │   │   │       ║
-║  └──┘6 │   │   │   5   ║
-╚════════╧═══╧═══╧═══════╝
+╔════════╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   2   ║[\n]
+║  │  │  │   │   │   3   ║[\n]
+║  │4 │  │   │   │       ║[\n]
+║  └──┘6 │   │   │   5   ║[\n]
+╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
 So we can print the banner for team fish:
 
 ```
- ╔════════╤═══╤═══╤═══════╗
-┌──────────────────────────┐
-│       Go team fish!      │
-│       Finally free.      │
-└──────────────────────────┘
- ╚════════╧═══╧═══╧═══════╝
+ ╔════════╤═══╤═══╤═══════╗ [\n]
+┌──────────────────────────┐[\n]
+│       Go team fish!      │[\n]
+│       Finally free.      │[\n]
+└──────────────────────────┘[\n]
+ ╚════════╧═══╧═══╧═══════╝ [\n]
 ```
 
 ### Corner Cases
@@ -429,12 +429,12 @@ Any input, which is not an integer number between 1 and 6 is invalid. Inputs are
 The following example shows the UI of the "initial" game after reading the invalid input `M`
 
 ```
- ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-┌──────────────────────────────────────────────────────────────┐
-│               The provided input is not valid!               │
-│                      Offending input: M                      │
-└──────────────────────────────────────────────────────────────┘
- ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+ ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗ [\n]
+┌──────────────────────────────────────────────────────────────┐[\n]
+│               The provided input is not valid!               │[\n]
+│                      Offending input: M                      │[\n]
+└──────────────────────────────────────────────────────────────┘[\n]
+ ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝ [\n]
 
 ```
 
@@ -442,12 +442,12 @@ Note that invalid inputs might be longer than 3 chars. In this case, we will sho
 `400000` is invalid and is longer than three digits/chars, so the board (after processing the valid inputs) will look like this:
 
 ```
- ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗
-┌──────────────────────────────────────────────────────────┐
-│             The provided input is not valid!             │
-│                  Offending input: 400...                 │
-└──────────────────────────────────────────────────────────┘
- ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝
+ ╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗ [\n]
+┌──────────────────────────────────────────────────────────┐[\n]
+│             The provided input is not valid!             │[\n]
+│                  Offending input: 400...                 │[\n]
+└──────────────────────────────────────────────────────────┘[\n]
+ ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝ [\n]
 
 ```
 
@@ -456,23 +456,23 @@ This corner case happens when the message text is much longer than the board siz
 
 
 ```
-      ╔════════╤═══════╗
-┌────────────────────────────┐
-│ The fishing was good; it's │
-│ the catching that was bad. │
-└────────────────────────────┘
-      ╚════════╧═══════╝
+      ╔════════╤═══════╗      [\n]
+┌────────────────────────────┐[\n]
+│ The fishing was good; it's │[\n]
+│ the catching that was bad. │[\n]
+└────────────────────────────┘[\n]
+      ╚════════╧═══════╝      [\n]
 ```
 
 Or
 
 ```
-       ╔════════╤═══╤═══════╗
-┌──────────────────────────────────┐
-│ The provided input is not valid! │
-│      Offending input: 400...     │
-└──────────────────────────────────┘
-       ╚════════╧═══╧═══════╝
+       ╔════════╤═══╤═══════╗       [\n]
+┌──────────────────────────────────┐[\n]
+│ The provided input is not valid! │[\n]
+│      Offending input: 400...     │[\n]
+└──────────────────────────────────┘[\n]
+       ╚════════╧═══╧═══════╝       [\n]
 ```
 
 
