@@ -314,7 +314,7 @@ Under the given input `[1,3,6,2,1,3,4,6,5,3,5,2,2,5,5,6,2,3,1,2,3,4,2,6,4,1,6]` 
 In this game status, all the possible outcomes can be achieved.
 
 ##### Fishermen/Hunters Win the Game
-If the next following inputs are `[4,1]` we would get:
+If the next following inputs are `[4,1]`, we would get the following board:
 
 ```
 ╔════════╤═══════╗[\n]
@@ -325,7 +325,7 @@ If the next following inputs are `[4,1]` we would get:
 ╚════════╧═══════╝[\n]
 ```
 
-The fishermen/hunters won the game, and we should print the following banner:
+However, since the fishermen/hunters won the game, *we do not print to screen the board yet*. Instead, we print to screen the board with the banner **over** it and obtain:
 
 ```
       ╔════════╤═══════╗      [\n]
@@ -360,7 +360,7 @@ And when we get `4`, the hunters/fishermen should move, because they have alread
 ╚════════╧═══╧═══════╝[\n]
 ```
 
-at this stage, two fishes are captured, and two fishes are safe. We should print the tie banner:
+at this stage, two fishes are captured, and two fishes are safe. As before, since the game is over, we do not print the final status of the board to the screen, but we print print the board and the tie banner over it:
 
 ```
  ╔════════╤═══╤═══════╗ [\n]
@@ -395,7 +395,7 @@ After getting `5`, Fish 5 moves.
 ╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
-And after getting `3`, Fish 5 (which is the last remaining, so the one with the **smallest** id among the alive fishes still in danger) move and the game ends.
+And after getting `3`, Fish 5 (which is the last remaining, so the one with the **smallest** id among the alive fishes still in danger) move and the game ends with the following board:
 
 
 ```
@@ -407,7 +407,7 @@ And after getting `3`, Fish 5 (which is the last remaining, so the one with the 
 ╚════════╧═══╧═══╧═══════╝[\n]
 ```
 
-So we can print the banner for team fish:
+Before refreshing the screen, we need to overlay the banner with the right message over the final board:
 
 ```
  ╔════════╤═══╤═══╤═══════╗ [\n]
