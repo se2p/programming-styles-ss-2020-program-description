@@ -3,12 +3,14 @@ All the assignments of the Programming Style SoSe 2020 class consist in re-imple
 
 The program we will implement is a non-interactive, non-competitive game called "Preys and Hunters" which is modeled after the kids' board game from Ravensburger [*"Tempo, kleine Fische!"*](https://www.ravensburger.de/23334/product.html), which is also known as "Avanti, Mare!"
 
-A short description of the game is available [here](https://boardgamegeek.com/boardgame/24658/avanti-mare)  while the official rules, as defined by Ravensburger, can be found[here](https://www.ravensburger.de/spielanleitungen/ecm/Spielanleitungen/229617_23334%2072dpi.pdf).
+A short description of the game is available [here](https://boardgamegeek.com/boardgame/24658/avanti-mare)  while the official rules, as defined by Ravensburger, can be found [here](https://www.ravensburger.de/spielanleitungen/ecm/Spielanleitungen/229617_23334%2072dpi.pdf).
 I will summarize them below.
 
 In this document, I will describe the specifications of the Preys and Hunters program. You can find more information about grading [here](GRADING.md).
 
 > Note: the specifications might be incomplete. For example, handling of expected inputs, or corner cases might not be fully specified. In this case, instead of complaining about that, you must pro-actively work to fix the problem by proposing updates, refinements, and public test cases! In other terms, the responsibility is yours as much as of your teacher!
+
+In Assignment 3, you will to re-implement the "standard" version of the application, as described below, using the Bulletin Board and the Hollywood programming styles. In addition to that, you will also develop "enhancements" of the application that will be delivered as Aspects and Plugins. The description of such enhancements and additional references can be found [here](ADDONS.md).
 
 ## Goal and Rules of the Game
 The goal of the game is for the fishermen/hunters to capture as many fishes/preys as possible, while for the fishes/preys the goal is to escape to safety in the open sea, where fishermen/hunters cannot go.
