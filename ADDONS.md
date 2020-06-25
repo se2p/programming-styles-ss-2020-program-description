@@ -46,11 +46,11 @@ Foreground and background colors do not replace one another but they sum up, whi
 
 So the following sequence, which is not terminated by reset, `\u001B[41m``AAA``\u001B[40m``\u001B[37m``BBB` produces as output:
 
-[withoutreset](colored-message-without-reseting.png "")
+![withoutreset](colored-message-without-reseting.png "")
 
 While the following sequence, which includes the reset control character, `\u001B[41m``AAA``\u001B[40m``\u001B[37m``BBB``\u001B[0m` produces as output:
 
-[withreset](colored-message-with-reseting.png "")
+![withreset](colored-message-with-reseting.png "")
 
 For the assignment you need to color the boat with a red background and a white foreground, the board and its tiles with a cyan background and a blue foreground and the message banners with a black background and a yellow foreground. The fishes and fishermen instead are white and yellow respectively.
 
