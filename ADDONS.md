@@ -1,0 +1,125 @@
+Programming Styles -- SoSe20
+---
+
+# Before Starting
+
+Before starting to implement the solution please make the following considerations:
+
+- You are going to use different styles in the same program, they should not conflict, but if they do: either re-design your solution to make the conflict disappear, or be ready to clearly explain why you violate one or the other style's constraint.
+
+- You are going to use different styles in the same program but you do not have necessary to mix them, do it so **only** if that's necessary/beneficial for you. For example, while implementing the program using **Hollywood and Plugins**, you must implement the "main" program according to **Hollywood** (so use callbacks), but there's no need to implement the whole plugins according to that style. Just make sure that when the plugins and the program meet you do not violate any of the styles. As always, document your choices and ask for feedback
+
+- Do not take short-cuts. You know that we are using aspects and plugins, so to some extend you can design your program in a way it is easier to be extended by the aspects and plugins. But do not make your programs dependent on them! In other words, your programs should not be coded with special codes for or direct access to the aspects and plugins implementation. It's the other way around. For example, in the aspects you know where join point to instrument/wrap.
+
+- Do not use external libraries. You might be temped to use external libraries for implementing the bulletin board, the aspects, etc. DO NOT DO IT! On one side, including another library limits your ability to apply aspects and plugins; on the other side, learning how to use another library is not what we want to do here and using such library might be overkilling.
+
+- Keep it simple. To implement simple Aspects in java my suggestion is to try to use proxies. The aspects are quite simple and do not require the full power of Aspect Oriented Programming.
+
+- Use what you have been given. The coloring schema and the class to collect stats are given to you. Use them, do not modify them. This simplifies your development, and the testing of your solution.
+
+
+# Coloring Output
+To color textual output you need to include "special" characters that activate the various colors (both for foreground and background). The special characters that you need to use are already listed inside: `ColorPaletter.java`. 
+
+For example, you can take the following text: 
+
+[This is a text]
+
+A change it to: 
+
+<span style="color:white;background-color:black; display:inline-block">[This is a text]</span>
+
+by adding the following special characters in front of it `\u001B[40m``\u001B[37m`
+
+`\u001B[37m` makes the font white (FOREGROUND color is white)
+
+`\u001B[40m` makes the background black (BACKGROUND color is black)
+
+The coloring machinery has a state: you activate a color with a special character and, unless you change it to another color or reset to default, that color remains active. This means that all the text that you print *after* a special characters will be rendered has specified by that character. 
+
+Foreground and background colors do not replace one another but they sum up, while the reset code `\u001B[0m` disable all the colors.
+
+So the following sequence, which is not terminated by reset, `\u001B[41m``AAA``\u001B[40m``\u001B[37m``BBB` produces as output:
+
+<span style="color:white;background-color:black; display:inline-block; width:100%"><span style="color:black;background-color:red;display:inline-block">AAA</span>BBB    
+</span>
+
+While the following sequence, which includes the reset control character, `\u001B[41m``AAA``\u001B[40m``\u001B[37m``BBB``\u001B[0m` produces as output:
+
+<span style="color:black;background-color:red;display:inline-block">AAA</span><span style="color:white;background-color:black;display:inline-block">BBB</br>
+</span>
+
+For the assignment you need to color the boat with a red background and a white foreground, the board and its tiles with a cyan background and a blue foreground and the message banners with a black background and a yellow foreground. The fishes and fishermen instead are white and yellow respectively.
+
+The image below shows the status of the initial board when coloring is active:
+![start](colored-start.png "")
+
+> **Note**: Please look carefully at the boat: The red background starts one position before the box and both fishermen are on the boat, so their background color must be the one of the boat.
+
+The image below shows the status of the board with a generic overlay message banner over the starting board.
+
+![message](colored-message.png "")
+
+
+
+# The FIXED (width) Text-UI
+
+```
+╔═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║   │  ┌──┐1 │   │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
+║   │  │  │  │   │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
+║   │  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║   │  └──┘6 │   │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
+╚═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
+```
+6 
+╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║   │   │  ┌──┐1 │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
+║   │   │  │  │  │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
+║   │   │  │  │  │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║   │   │  └──┘6 │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
+╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
+
+4, 2, 4
+╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║   │   │  ┌──┐1 │   │   │   │ ▓ │ 2 │   │   │   │   │       ║[\n]
+║   │   │  │  │  │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
+║   │   │  │  │  │   │   │   │ ▓ │   │ 4 │   │   │   │       ║[\n]
+║   │   │  └──┘6 │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
+╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
+```
+ ╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗ [\n]
+┌──────────────────────────────────────────────────────────────┐[\n]
+│                           CENTERED                           │[\n]
+│                           MESSAGE.                           │[\n]
+└──────────────────────────────────────────────────────────────┘[\n]
+ ╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝ [\n]
+ ```
+ 
+# Handling Default And Exceptional Cases
+
+If no config file can be found, assume that the plugin to be used is default.js, but if the config file is there still the corresponding plugin cannot be found ends with an error ! (so empty config file -> error, configFile with wrong name -> error)
+
+Rules to load and configure the plugins:
+	if the configuration file is there the following configurations must be loaded:
+	- <NAME> of the plugin to use. Plugin must be available under `./plugins` and should be inside the file <NAME>.js
+
+Rules to load and configure the plugins:
+	if the configuration file is there the following configurations must be loaded:
+	- <NAME> of the plugin to use. Plugin must be available under `./plugins` and should be inside the file <NAME>.js
+
+
+# References
+This list of references is incomplete. Please consider creating issues and submitting additional references via GitHub.
+
+* Generating colored output on Console. [https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println](https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println)
+
+* Implementing aspects without AspectJ (or other libraries). [https://stackoverflow.com/questions/23327115/aspect-oriented-programming-in-java-without-aspectj](https://stackoverflow.com/questions/23327115/aspect-oriented-programming-in-java-without-aspectj)
+
+* Using Dynamic Proxies as a mechanism to use the Aspects Style in Java:
+    * [http://tutorials.jenkov.com/java-reflection/dynamic-proxies.html](http://tutorials.jenkov.com/java-reflection/dynamic-proxies.html)
+    * [https://www.baeldung.com/java-dynamic-proxies](https://www.baeldung.com/java-dynamic-proxies)
+    * [https://opencredo.com/blogs/dynamic-proxies-java/](https://opencredo.com/blogs/dynamic-proxies-java/)
+    * [https://opencredo.com/blogs/dynamic-proxies-java-part-2/](https://opencredo.com/blogs/dynamic-proxies-java-part-2/)
+
+* Using INI files with Node/Javascript: [https://thisdavej.com/using-ini-files-in-your-node-js-applications-for-health-and-profit/](https://thisdavej.com/using-ini-files-in-your-node-js-applications-for-health-and-profit/)
