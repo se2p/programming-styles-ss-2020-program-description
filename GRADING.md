@@ -1,3 +1,6 @@
+Programming Styles -- SoSe20
+---
+
 # Grading and Submission
 
 In each assignment, you are asked to complete programming tasks and possibly answer questions. Programming tasks are evaluated in terms of their correctness, adherence to the various programming styles, general organization, code quality and clarity in the code comments.

@@ -1,3 +1,6 @@
+Programming Styles -- SoSe20
+---
+
 # A Game of Preys and Hunters
 All the assignments of the Programming Style SoSe 2020 class consist in re-implementing the same program over and over, using a different programming style every time. This follows the same approach proposed by Cristina Lopes in her book *"Exercises in Programming Style."*
 
