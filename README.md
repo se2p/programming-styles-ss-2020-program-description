@@ -217,8 +217,8 @@ The UI at the beginning of the game is as follow (Note: there are no empty space
 ║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
 ║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
 ╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
-
 ```
+
 Then after processing the inputs `2`, `5`, and `3`, because fishes moved, the board will look like this:
 
 ```

@@ -1,7 +1,10 @@
 Programming Styles -- SoSe20
 ---
 
-# Before Starting
+# Additional Requirements for Assignment 3
+This document reports the additional requirements for Assignment 3. If you believe that the document lacks details, please use open issues and create pull requests.
+
+## Before Starting
 
 Before starting to implement the solution please make the following considerations:
 
@@ -18,7 +21,9 @@ Before starting to implement the solution please make the following consideratio
 - Use what you have been given. The coloring schema and the class to collect stats are given to you. Use them, do not modify them. This simplifies your development, and the testing of your solution.
 
 
-# Coloring Output
+## Coloring Output
+For the task **Bulletin Board and Aspects**, one of the aspect is in charge of changing the color of the UI.
+
 To color textual output you need to include "special" characters that activate the various colors (both for foreground and background). The special characters that you need to use are already listed inside: `ColorPaletter.java`. 
 
 For example, you can take the following text: 
@@ -62,55 +67,70 @@ The image below shows the status of the board with a generic overlay message ban
 
 
 
-# The FIXED (width) Text-UI
+## The FIXED (width) Text-UI
+
+For the task **Hollywood and Plugins**, one of the rendering plugin must create boards that always have the same length. In this case, when the boat moves down the river, you do not have to remove tiles from the game board.
+
+The following example should clarify the requirements.
+Imagine that you receive the following inputs: 
+`[1, 6, 2, 4, 4, 4, 4 ,4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6]`
+
+At the beginning the board is same as always:
 
 ```
-╔═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
-║   │  ┌──┐1 │   │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
-║   │  │  │  │   │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
-║   │  │  │  │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
-║   │  └──┘6 │   │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
-╚═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
+╔════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
+║  ┌──┐1 │   │   │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
+║  │  │  │   │   │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
+║  └──┘6 │   │   │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
+╚════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 ```
-6 
+
+After reading `[1, 6]` the status of the board is the following:
+
+```
 ╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
 ║   │   │  ┌──┐1 │   │   │   │ 2 │   │   │   │   │   │       ║[\n]
 ║   │   │  │  │  │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
 ║   │   │  │  │  │   │   │   │ 4 │   │   │   │   │   │       ║[\n]
 ║   │   │  └──┘6 │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
 ╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
+```
 
-4, 2, 4
+As you see the boat moved two tiles closed to the fishes.
+
+After reading `2, 2, 2, 2, 2, 4, 4, 4, 4 ,4, 4, ` the fishes move. 
+Fish 2 is almost safe, while Fish 4 is safe:
+
+```
 ╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗[\n]
-║   │   │  ┌──┐1 │   │   │   │ ▓ │ 2 │   │   │   │   │       ║[\n]
+║   │   │  ┌──┐1 │   │   │   │ ▓ │   │   │   │   │ 2 │       ║[\n]
 ║   │   │  │  │  │   │   │   │ 3 │   │   │   │   │   │       ║[\n]
-║   │   │  │  │  │   │   │   │ ▓ │   │ 4 │   │   │   │       ║[\n]
+║   │   │  │  │  │   │   │   │ ▓ │   │   │   │   │   │   4   ║[\n]
 ║   │   │  └──┘6 │   │   │   │ 5 │   │   │   │   │   │       ║[\n]
 ╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝[\n]
 ```
- ╔═══╤═══╤════════╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══════╗ [\n]
+
+After reading the remaining inputs are processed (they all are `6`) the boat reaches the end of the board. And the game is over. The message says Fishermen won.
+
+```
+ ╔═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤═══╤════════╤═══════╗ [\n]
 ┌──────────────────────────────────────────────────────────────┐[\n]
-│                           CENTERED                           │[\n]
-│                           MESSAGE.                           │[\n]
+│                  The fishing was good; it's                  │[\n]
+│                  the catching that was bad.                  │[\n]
 └──────────────────────────────────────────────────────────────┘[\n]
- ╚═══╧═══╧════════╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══════╝ [\n]
- ```
- 
-# Handling Default And Exceptional Cases
+ ╚═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╧════════╧═══════╝ [\n]
+```
 
-If no config file can be found, assume that the plugin to be used is default.js, but if the config file is there still the corresponding plugin cannot be found ends with an error ! (so empty config file -> error, configFile with wrong name -> error)
+> Note: The same requirements to display the message centered still applies, including the white spaces before and after the board.
 
-Rules to load and configure the plugins:
-	if the configuration file is there the following configurations must be loaded:
-	- <NAME> of the plugin to use. Plugin must be available under `./plugins` and should be inside the file <NAME>.js
+## Plugins Exceptional Cases
 
-Rules to load and configure the plugins:
-	if the configuration file is there the following configurations must be loaded:
-	- <NAME> of the plugin to use. Plugin must be available under `./plugins` and should be inside the file <NAME>.js
+For the plugins style we assume that the plugin configuration file (`config.ini`) exists and always specify a valid plugin name (`default` or `fixed`). If your program cannot find a valid configuration file or the configuration specified therein are not valid (e.g., the file is empty; the file points toward a plugin that does not exist; etc.) the execution should stop with an Error!
 
+> In other words, do not enforce any hardcode behavior in the program, like using "default" if nothing else works
 
-# References
-This list of references is incomplete. Please consider creating issues and submitting additional references via GitHub.
+## References
 
 * Generating colored output on Console. [https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println](https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println)
 
